@@ -1,0 +1,26 @@
+{
+	"1": {
+		"name": "Bitcoin",
+		"quote": { "USD": { "price": 104858.74, "percent_change_24h": 0.88 } }
+	},
+	"1027": {
+		"name": "Ethereum",
+		"quote": { "USD": { "price": 3318.76, "percent_change_24h": -2.85 } }
+	},
+	"1839": {
+		"name": "BNB",
+		"quote": { "USD": { "price": 690.85, "percent_change_24h": -1.35 } }
+	},
+	"52": {
+		"name": "XRP",
+		"quote": { "USD": { "price": 3.13, "percent_change_24h": 0.41 } }
+	},
+	"825": {
+		"name": "USDT",
+		"quote": { "USD": { "price": 1.0, "percent_change_24h": -0.07 } }
+	},
+	"5426": {
+		"name": "SOL",
+		"quote": { "USD": { "price": 272.51, "percent_change_24h": 14.67 } }
+	}
+}

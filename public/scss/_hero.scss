@@ -1,0 +1,122 @@
+@import './variables';
+
+.hero {
+	margin-top: 100px;
+}
+
+.hero__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.title {
+	font-size: 50px;
+	font-weight: 600;
+}
+
+.hero__title {
+	max-width: 1000px;
+}
+
+.hero__subtitle {
+	margin-top: 25px;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+.hero-starts__buttons-container {
+	margin-top: 50px;
+}
+
+.hero-starts__button {
+	padding: 15px 20px;
+	border-radius: 20px;
+	font-size: 20px;
+	margin-left: 15px;
+	box-shadow: $primary-shadow;
+	transition: transform 0.4s ease;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+
+.hero-starts__button-start {
+	position: relative;
+	border: 1px solid $secondary-color;
+	color: $dark-gray-color;
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 20px;
+		background-color: $secondary-color;
+		transition: width 0.3s ease;
+		z-index: -1;
+		border-radius: 20px;
+
+	}
+
+	&:hover::after {
+		width: 100%;
+	}
+
+	&:hover {
+		color: $white-text-btn;
+	}
+}
+
+.hero-starts__button-more {
+	background-color: $dark-gray-color;
+	color: $white-text-btn;
+
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 100%;
+		top: 0;
+		left: 0;
+		border-radius: 20px;
+		background-color: #fff;
+		transition: width 0.3s ease;
+		z-index: -1;
+	}
+
+	&::before {
+		content: "";
+		opacity: 0;
+	}
+
+	&:hover::before {
+		content: "";
+		position: absolute;
+		bottom: -40px;
+		left: 63px;
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 5px solid $dark-gray-color;
+		border-radius: 20px;
+		opacity: 1;
+		transition: opacity 0.4s ease;
+	}
+
+	&:hover::after {
+		width: 100%;
+
+	}
+
+	&:hover {
+		color: $dark-gray-color;
+	}
+}

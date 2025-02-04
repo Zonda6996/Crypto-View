@@ -1,0 +1,18 @@
+// Базовые стили
+@import './nullstyle';
+
+// Стили основных компонентов
+@import './header';
+@import './hero';
+@import './cryptolist';
+@import './converter';
+@import './news';
+@import './faq';
+@import './profile';
+
+// Главные компоненты
+@import './global';
+
+// Утилитарные стили
+@import './variables';
+@import './skeleton';

@@ -1,0 +1,105 @@
+@import './variables';
+
+.cryptolist {
+	font-family: 'Oxanium';
+	margin-top: 130px;
+}
+
+.cryptolist__container {}
+
+.cryptolist__title {
+	font-size: 30px;
+	font-family: Poppins;
+}
+
+.cryptolist__coins {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.cryptolist__coin {
+	display: flex;
+	flex: 0 1 32.333%;
+	min-width: 250px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	padding: 30px 18px;
+	margin-top: 50px;
+	border-radius: 20px;
+	box-shadow: $primary-shadow;
+}
+
+.cryptolist__column {
+	margin-left: 35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cryptolist__column-title {
+	margin-bottom: 30px;
+	color: $light-gray;
+}
+
+.cryptolist__coin-icon-name {
+	display: flex;
+	align-items: center;
+}
+
+.cryptolist__coin-icon {}
+
+#coinIcon {
+	width: 25px;
+	height: 25px;
+}
+
+.cryptolist__coin-name {
+	margin-left: 5px;
+	font-size: 22px;
+
+	span {
+		font-size: 14px;
+		color: $light-gray;
+
+		&::before {
+			content: "• ";
+			font-family: Arial;
+		}
+	}
+}
+
+.cryptolist__column-price {}
+
+.cryptolist__coin-title {}
+
+
+.cryptolist__price-change-badge {
+	display: flex;
+	justify-content: center;
+}
+
+
+.cryptolist__price-change {
+	padding: 4px;
+	font-size: 14px;
+	border-radius: 8px;
+}
+
+.cryptolist__price-change-up {
+	color: $light-green;
+	background-color: $dark-green;
+
+	&::before {
+		content: "▲";
+	}
+}
+
+.cryptolist__price-change-down {
+	color: $light-red;
+	background-color: $dark-red;
+
+	&::before {
+		content: "▼";
+	}
+}

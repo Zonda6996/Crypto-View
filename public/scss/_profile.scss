@@ -1,0 +1,325 @@
+.profile {
+	margin-top: 15px;
+}
+
+.page {}
+
+.container {}
+
+.profile__container {}
+
+.profile__header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.profile__header-logo-text {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-radius: 20px;
+
+	box-shadow: $primary-shadow;
+}
+
+.profile__header-logo {}
+
+.profile__header-text {
+	margin-left: 25px;
+	font-family: Oxanium;
+	font-weight: 200;
+}
+
+.profile__header-user {
+	display: flex;
+	align-items: center;
+}
+
+
+.profile__header-user-img {
+	background-color: $dark-gray-color;
+	box-shadow: $primary-shadow;
+	border-radius: 20px;
+	margin-right: 15px;
+	object-fit: cover;
+	border-radius: 100%;
+
+
+	&:hover {
+		box-shadow: 0px 0px 0px 4px $dark-gray-transperant;
+	}
+}
+
+#avatarMain {
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	object-fit: contain;
+}
+
+.profile__hero {
+	margin-top: 150px;
+}
+
+.profile__hero-text {
+	max-width: 700px;
+}
+
+.profile__hero-title {}
+
+.profile__hero-subtitle {
+	font-size: 30px;
+}
+
+.profile__login {
+	margin-top: 30px;
+}
+
+.profile__login-text {
+	font-size: 20px;
+}
+
+#login {
+	padding: 15px 35px;
+	margin-top: 10px;
+	background-color: $secondary-color;
+	border-radius: 20px;
+	color: $white-text-btn;
+	box-shadow: $shadow-btn;
+	transition: background-color 0.3s ease, color 0.3s ease;
+
+	&:hover {
+		background-color: $white-text-btn;
+		color: $primary-color;
+	}
+}
+
+.profile__auth {
+	margin-bottom: 1000px;
+}
+
+.profile__auth-modal-acitve {
+	visibility: visible !important;
+}
+
+.profile__auth-modal-acitve .profile__auth-window {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+.profile__auth-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 99;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	overflow-y: auto;
+	overflow: hidden;
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.5);
+	-webkit-overflow-scrolling: touch;
+	visibility: hidden;
+}
+
+.profile__auth-modal-wrap {
+	flex-shrink: 0;
+	flex-grow: 0;
+	width: 100%;
+	min-height: 100%;
+	margin: auto;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+.profile__auth-window {
+	position: relative;
+	width: 600px;
+	max-width: 100%;
+	margin: 15px;
+	padding: 50px 15px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	box-shadow: $primary-shadow;
+	// border: 1px solid $secondary-color;
+	background: $white-text-btn;
+	border-radius: 20px;
+	color: $primary-color;
+
+	transition: transform 0.3s ease 0s, opacity 0.5s ease;
+	transform: translateY(-800px);
+}
+
+#modalClose {
+	position: absolute;
+	right: 10px;
+	top: 6px;
+	color: $light-red;
+}
+
+.profile__auth-title {
+	font-size: 20px;
+}
+
+#profile-form {}
+
+.profile__username,
+.profile__email,
+.profile__avatar,
+.profile__favorite-currency {
+	display: flex;
+	flex-direction: column;
+	margin-top: 20px;
+	gap: 10px;
+}
+
+.profile__username,
+.profile__email,
+.profile__favorite-currency {
+	input {
+		max-width: 300px;
+	}
+}
+
+.profile__username {}
+
+.profile__email {}
+
+.profile__avatar {}
+
+#customUpload {
+	position: relative;
+	max-width: 77px;
+	border-radius: 100%;
+
+
+	img {
+		background: $dark-gray-color;
+		border-radius: 100%;
+		object-fit: cover;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		background: url(../img/photoAdd.svg) 1px -2px no-repeat;
+		background-size: cover;
+		width: 24px;
+		height: 25px;
+		top: 14px;
+		left: 14px;
+		padding: 22px;
+		border-radius: 42%;
+		opacity: 0;
+		transition: transform 0.4s ease-in-out, background-color 0.4s ease-in-out, opacity 0.4s ease-in-out;
+	}
+
+	&:hover::before {
+		transform: scale(1.3);
+		background-color: $dark-gray-color;
+		opacity: 1;
+	}
+}
+
+#avatarModal {
+	width: 72px;
+	height: 70px;
+}
+
+.profile__avatar-label {
+	pointer-events: none;
+	cursor: default;
+}
+
+.profile__favorite-currency {}
+
+#authSubmit {
+	margin-top: 20px;
+	padding: 10px 15px;
+	background-color: $dark-gray-color;
+	color: $white-text-btn;
+	border-radius: 10px;
+	transition: background-color 0.4s ease, color 0.4s ease;
+	box-shadow: $shadow-btn;
+
+	&:hover {
+		background-color: $white-text-btn;
+		color: $dark-gray-color;
+	}
+}
+
+#authLoading {
+	background-color: black;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 1500px;
+	z-index: 100;
+}
+
+.profile__main-content {
+	display: none;
+}
+
+.profile__choise {}
+
+.profile__choise-title {
+	text-align: center;
+	font-size: 30px;
+}
+
+.profile__cryptocurrency {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+.profile__cryptocurrency-coins {
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+	border-radius: 20px;
+	border: 2px solid $primary-color;
+	box-shadow: $primary-shadow;
+}
+
+.profile__cryptocurrency-coin {
+	max-width: 700px;
+	margin-top: 20px;
+	padding: 10px 15px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.profile__cryptocurrency-column {
+	flex: 1 1;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.profile__cryptocurrency-column-title {}
+
+#addCoin {
+	background-color: $light-green;
+	padding: 5px 15px;
+	border-radius: 20px;
+	color: $white-text-btn;
+	margin-left: 60px;
+
+	&:hover {
+		opacity: 0.7;
+	}
+}

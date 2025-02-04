@@ -1,0 +1,26 @@
+body {
+	font-family: 'Poppins';
+	color: $primary-color;
+}
+
+.container {
+	max-width: 1450px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	min-height: 100svh;
+	min-height: 100vh;
+}
+
+.page {
+	display: none;
+}
+
+.page.active {
+	display: block;
+}
