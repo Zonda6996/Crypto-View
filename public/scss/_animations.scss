@@ -1,0 +1,9 @@
+@keyframes rotation {
+	0% {
+		--gradient-angle: 0deg;
+	}
+
+	100% {
+		--gradient-angle: 360deg;
+	}
+}

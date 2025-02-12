@@ -35,7 +35,6 @@
 	padding: 15px 20px;
 	border-radius: 20px;
 	font-size: 20px;
-	margin-left: 15px;
 	box-shadow: $primary-shadow;
 	transition: transform 0.4s ease;
 
@@ -45,9 +44,11 @@
 }
 
 .hero-starts__button-start {
+	display: initial;
 	position: relative;
 	border: 1px solid $secondary-color;
 	color: $dark-gray-color;
+	margin-right: 15px;
 
 	&::after {
 		content: "";

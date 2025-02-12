@@ -1,0 +1,15 @@
+#notification-container {
+	display: none;
+	position: absolute;
+	right: 0;
+	margin: 15px 15px 0 0;
+	z-index: 99;
+}
+
+.notification {
+	position: relative;
+
+	&:not(:first-child) {
+		margin-top: 15px;
+	}
+}

@@ -32,6 +32,7 @@
 }
 
 .header__nav-list-item {
+	font-weight: 300;
 
 	&:not(:last-child) {
 		margin-right: 50px;
@@ -39,6 +40,11 @@
 
 	& a {
 		color: $primary-color;
+
+		&:hover {
+			color: $secondary-color;
+			border-bottom: 1px solid $secondary-color;
+		}
 	}
 }
 
@@ -75,7 +81,7 @@
 	}
 }
 
-#profileImg {
+#mainAvatar {
 	width: 42px;
 	height: 42px;
 	border-radius: 100%;
@@ -94,8 +100,8 @@
 .header-profile__dropdown {
 	padding: 10px;
 	position: absolute;
-	right: 0;
-	top: 50px;
+	right: 45px;
+	top: 80px;
 	background-color: $dark-gray-color;
 	border-radius: 20px;
 	box-shadow: $primary-shadow;
@@ -135,6 +141,11 @@
 
 	&[data-action="profile"]::before {
 		background: url(../img/myProfile.svg) 0px 0px no-repeat;
+		background-size: cover;
+	}
+
+	&[data-action="search"]::before {
+		background: url(../img/searchCoin.svg) 0px 0px no-repeat;
 		background-size: cover;
 	}
 

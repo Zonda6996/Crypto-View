@@ -2,7 +2,7 @@
 const isDevelopment = false
 
 // Получаем данные о монетах с API
-export async function fetchCoinsData() {
+export async function fetchMainCoinsData() {
 
 	try {
 		let response

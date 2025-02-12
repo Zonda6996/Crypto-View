@@ -1,5 +1,5 @@
 // Подключаем библиотеку express для создания сервера
-import express from 'express'
+import express, { response } from 'express'
 // Подключаем библиотеку axios для отправки запросов к внешним API
 import axios from 'axios'
 // Подключаем библиотеку cors, которая помогает избежать проблем с CORS
@@ -26,6 +26,7 @@ app.use(cors())
 // id для BTC, ETH, BNB, XRP, USDT, SOL
 const COINS_IDS = [1, 1027, 1839, 52, 825, 5426]
 
+// Маршрут для получения 6-ти популряных монет
 app.get('/cryptos', async (req, res) => {
 	const url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest'
 
@@ -49,6 +50,7 @@ app.get('/cryptos', async (req, res) => {
 	}
 })
 
+// Маршрут для конвертации валют
 app.get('/price-conversion', async (req, res) => {
 	const url = 'https://pro-api.coinmarketcap.com/v1/tools/price-conversion'
 
@@ -76,6 +78,7 @@ app.get('/price-conversion', async (req, res) => {
 	}
 })
 
+// Маршрут для получения новостей
 app.get('/news', async (req, res) => {
 	const oneMonthAgo = new Date()
 	oneMonthAgo.setDate(oneMonthAgo.getDate() - 28)

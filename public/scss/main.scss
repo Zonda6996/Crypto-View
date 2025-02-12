@@ -9,6 +9,8 @@
 @import './news';
 @import './faq';
 @import './profile';
+@import './search';
+@import './favorites';
 
 // Главные компоненты
 @import './global';
@@ -16,3 +18,5 @@
 // Утилитарные стили
 @import './variables';
 @import './skeleton';
+@import './animations';
+@import './notification';

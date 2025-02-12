@@ -80,13 +80,13 @@
 }
 
 
-.cryptolist__price-change {
+.price-change {
 	padding: 4px;
 	font-size: 14px;
 	border-radius: 8px;
 }
 
-.cryptolist__price-change-up {
+.price-change-up {
 	color: $light-green;
 	background-color: $dark-green;
 
@@ -95,7 +95,7 @@
 	}
 }
 
-.cryptolist__price-change-down {
+.price-change-down {
 	color: $light-red;
 	background-color: $dark-red;
 

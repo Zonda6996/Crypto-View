@@ -1,28 +1,29 @@
 // Импортируем модули
-import { renderCoinsData, renderNews } from "./modules/render.js";
-import { initScrollToTitle, initProfileMenu, initCurrencyConverter, handleProfileClick, handlePopstate, switchPage, handleModal, handleAuth, loadDataProfile, logOut } from "./modules/eventHanlers.js";
+import { renderAddedCoins, renderCoinsData, renderNews } from "./modules/render.js";
+import { initScrollToTitle, initProfileMenu, initCurrencyConverter, handleProfileClick, handlePopstate, switchPage, handleModal, handleAuth, logOut, addCoins, coinsFollowing, toggleCoinDetails, initFavoritesCurrencyConverter } from "./modules/eventHanlers.js";
 
 
 // Инициализируем модули
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
 	// Рендер данных с API
 	renderCoinsData()
+	renderAddedCoins()
 	// renderNews()
 
 	handleProfileClick()
 	window.addEventListener('popstate', handlePopstate)
 
-	// Проверяем, какую страницу надо показать сразу при загрузке
-	const page = window.location.pathname.slice(1) || 'main'
-	switchPage(page)
-
 	// Инициализация компонентов
 	initScrollToTitle()
 	initProfileMenu()
 	initCurrencyConverter()
+	initFavoritesCurrencyConverter()
 
-	// Показываем скрытые элементы
+	// Элементы управления
 	handleModal()
 	handleAuth()
 	logOut()
+	addCoins()
+	coinsFollowing()
+	toggleCoinDetails()
 });

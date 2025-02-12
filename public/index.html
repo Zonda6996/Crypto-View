@@ -17,7 +17,34 @@
 	</head>
 	<body>
 		<div class="wrapper">
-			<header class="header page active">
+			<div class="header-profile__dropdown">
+				<div class="header-profile__dropdown-items">
+					<button class="header-profile__dropdown-item" data-action="profile">
+						My Profile
+					</button>
+					<!-- <button class="header-profile__dropdown-item" data-action="search">
+						Search Coins
+					</button> -->
+					<button class="header-profile__dropdown-item" data-action="favorites">
+						Favorites
+					</button>
+					<button class="header-profile__dropdown-item" data-action="settings">
+						Settings
+					</button>
+					<button class="header-profile__dropdown-item" data-action="logout">
+						Log Out
+					</button>
+				</div>
+			</div>
+
+			<div id="notification-container">
+				<div class="notification notification-warning">
+					Please, select at least one coin.
+				</div>
+			</div>
+
+			<div class="main-content page active" data-page="main">
+			<header class="header">
 				<div class="container header__container">
 					<div class="header__logo-nav">
 						<div class="header__logo">
@@ -27,9 +54,11 @@
 						</div>
 						<nav class="header__nav">
 							<ul class="header__nav-list">
-								<li class="header__nav-list-item"><a href="#">Link 1</a></li>
-								<li class="header__nav-list-item"><a href="#">Link 2</a></li>
-								<li class="header__nav-list-item"><a href="#">Link 3</a></li>
+								<li class="header__nav-list-item">
+									<a href="/profile">Profile</a>
+								</li>
+								<li class="header__nav-list-item"><a href="#">Features</a></li>
+								<li class="header__nav-list-item"><a href="#">News</a></li>
 							</ul>
 						</nav>
 					</div>
@@ -47,43 +76,14 @@
 						</div>
 						<button class="header-profile">
 							<div class="header-profile__img">
-								<img id="profileImg" src="./img/user.svg" alt="User" />
+								<img id="mainAvatar" src="./img/user.svg" alt="User" />
 							</div>
 						</button>
-						<div class="header-profile__dropdown">
-							<div class="header-profile__dropdown-items">
-								<button
-									class="header-profile__dropdown-item"
-									data-action="profile"
-								>
-									My Profile
-								</button>
-								<button
-									class="header-profile__dropdown-item"
-									data-action="favorites"
-								>
-									Favorites
-								</button>
-								<button
-									class="header-profile__dropdown-item"
-									data-action="settings"
-								>
-									Settings
-								</button>
-								<button
-									class="header-profile__dropdown-item"
-									data-action="logout"
-								>
-									Log Out
-								</button>
-							</div>
-						</div>
 					</div>
 				</div>
 			</header>
-
 			<main class="main">
-				<section class="hero page active">
+				<section class="hero">
 					<div class="container hero__container">
 						<h1 class="title hero__title">
 							Stay updated on the world of cryptocurrencies in real time!
@@ -101,20 +101,19 @@
 						</div>
 					</div>
 				</section>
-
-				<section class="cryptolist page active">
+				<section class="cryptolist">
 					<div class="container cryptolist__container">
 						<h2 class="title cryptolist__title">
 							The Most Popular Cryptocurrency
 						</h2>
-						<div class="cryptolist__coins">
-							<div class="cryptolist__coin" data-id="1">
+						<div class="coins cryptolist__coins">
+							<div class="coin cryptolist__coin" data-id="1">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/btc_logo.svg"
 												alt="BTC Icon"
 											/>
@@ -122,29 +121,29 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												BTC
-												<span id="coinNameFull">Bitcoin</span>
+												<span class="coin-name-full" id="coinNameFull">Bitcoin</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
-							<div class="cryptolist__coin" data-id="1027">
+							<div class="coin cryptolist__coin" data-id="1027">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/eth_logo.svg"
 												alt="Ethereum Icon"
 											/>
@@ -152,29 +151,29 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												ETH
-												<span id="coinNameFull">Ethereum</span>
+												<span class="coin-name-full" id="coinNameFull">Ethereum</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
-							<div class="cryptolist__coin" data-id="1839">
+							<div class="coin cryptolist__coin" data-id="1839">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/bnb_logo.svg"
 												alt="BNB Icon"
 											/>
@@ -182,29 +181,29 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												BNB
-												<span id="coinNameFull">BNB</span>
+												<span class="coin-name-full" id="coinNameFull">BNB</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
-							<div class="cryptolist__coin" data-id="52">
+							<div class="coin cryptolist__coin" data-id="52">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/xrp_logo.svg"
 												alt="XRP Icon"
 											/>
@@ -212,29 +211,29 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												XRP
-												<span id="coinNameFull">XRP</span>
+												<span class="coin-name-full" id="coinNameFull">XRP</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
-							<div class="cryptolist__coin" data-id="825">
+							<div class="coin cryptolist__coin" data-id="825">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/tether_logo.svg"
 												alt="Tether Icon"
 											/>
@@ -242,29 +241,29 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												USDT
-												<span id="coinNameFull">Tether</span>
+												<span class="coin-name-full" id="coinNameFull">Tether</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
-							<div class="cryptolist__coin" data-id="5426">
+							<div class="coin cryptolist__coin" data-id="5426">
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Name</p>
 									<div class="cryptolist__coin-icon-name">
 										<div class="cryptolist__coin-icon">
 											<img
-												id="coinIcon"
+												class="coin-icon" id="coinIcon"
 												src="./img/sol_logo.svg"
 												alt="Solana Icon"
 											/>
@@ -272,27 +271,26 @@
 										<div class="cryptolist__coin-name">
 											<p id="coinName">
 												SOL
-												<span id="coinNameFull">Solana</span>
+												<span class="coin-name-full" id="coinNameFull">Solana</span>
 											</p>
 										</div>
 									</div>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">Price</p>
-									<p id="coinPrice"></p>
+									<p class="coin-price" id="coinPrice"></p>
 								</div>
 								<div class="cryptolist__column">
 									<p class="cryptolist__column-title">24H Change</p>
 									<div class="cryptolist__price-change-badge">
-										<p class="cryptolist__price-change"></p>
+										<p class="price-change cryptolist__price-change"></p>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</section>
-
-				<section class="converter page active">
+				<section class="converter">
 					<div class="container converter__container">
 						<h2 class="title converter__title">
 							Simple Cryptocurrency Converter
@@ -365,8 +363,7 @@
 						</div>
 					</div>
 				</section>
-
-				<article class="news page active">
+				<article class="news">
 					<div class="container news__container">
 						<h2 class="title news__title">Latest News</h2>
 						<div class="news__inner">
@@ -442,17 +439,16 @@
 						</div>
 					</div>
 				</article>
-
-				<section class="faq page active">
-					<div class="container faq__container">
-						<h2 class="title faq__title">Frequently Asked Questions</h2>
-					</div>
-				</section>
-
-				<section class="profile page" id="profileSection">
+				<section class="faq">
+						<div class="container faq__container">
+							<h2 class="title faq__title">Frequently Asked Questions</h2>
+						</div>
+					</section>
+				</div>
+				<section class="profile page" id="profileSection" data-page="profile">
 					<div class="container profile__container">
 						<div class="profile__header">
-							<div class="profile__header-logo-text">
+							<div class="profile__header-logo-text header__text">
 								<div class="profile__header-logo">
 									<a href="./index.html"
 										><img src="./img/Logo CV.svg" alt="CryptoView Logo"
@@ -462,7 +458,7 @@
 							</div>
 							<div class="profile__header-user">
 								<div class="profile__header-user-img">
-									<img id="avatarMain" src="./img/user.svg" alt="User" />
+									<img id="profileAvatar" src="./img/user.svg" alt="User" />
 								</div>
 								<div class="profile__header-username">User Name</div>
 							</div>
@@ -470,7 +466,9 @@
 
 						<div class="profile__hero">
 							<div class="profile__hero-text">
-								<div id="mainGreeting" class="profile__hero-title title">Hello!</div>
+								<div id="mainGreeting" class="profile__hero-title title">
+									Hello!
+								</div>
 								<div class="profile__hero-subtitle">
 									This is Your Profile page. Here you can track your
 									cryptocurrencies and manage your portfolio.
@@ -515,9 +513,9 @@
 														/>
 													</div>
 													<div class="profile__avatar">
-														<label class="profile__avatar-label"
-															>Profile Photo:</label
-														>
+														<div class="profile__avatar-label">
+															Profile Photo:
+														</div>
 														<label id="customUpload" for="avatar">
 															<img
 																id="avatarModal"
@@ -551,12 +549,12 @@
 						<div class="profile__main-content">
 							<div class="profile__choise">
 								<h2 class="profile__choise-title title">
-									Let's choose your first coins!
+									Let's choose your coins!
 								</h2>
 								<div class="profile__cryptocurrency">
-									<div class="profile__cryptocurrency-coins cryptolist__coins">
+									<div class="coins profile__cryptocurrency-coins cryptolist__coins">
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="1"
 										>
 											<div
@@ -570,13 +568,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/btc_logo.svg"
 															alt="BTC Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">BTC</p>
+														<p class="coin-name" id="coinName">BTC</p>
 													</div>
 												</div>
 											</div>
@@ -588,7 +586,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div
 												class="profile__cryptocurrency-column cryptolist__column"
@@ -599,13 +597,20 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="1027"
 										>
 											<div
@@ -619,13 +624,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/eth_logo.svg"
 															alt="Ethereum Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">ETH</p>
+														<p class="coin-name" id="coinName">ETH</p>
 													</div>
 												</div>
 											</div>
@@ -637,7 +642,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div
 												class="profile__cryptocurrency-column cryptolist__column"
@@ -648,13 +653,20 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="1839"
 										>
 											<div
@@ -668,13 +680,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/bnb_logo.svg"
 															alt="BNB Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">BNB</p>
+														<p class="coin-name" id="coinName">BNB</p>
 													</div>
 												</div>
 											</div>
@@ -686,7 +698,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div class="cryptolist__column">
 												<p
@@ -695,13 +707,20 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="52"
 										>
 											<div
@@ -715,13 +734,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/xrp_logo.svg"
 															alt="XRP Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">XRP</p>
+														<p class="coin-name" id="coinName">XRP</p>
 													</div>
 												</div>
 											</div>
@@ -733,7 +752,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div
 												class="profile__cryptocurrency-column cryptolist__column"
@@ -744,13 +763,20 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="825"
 										>
 											<div
@@ -764,13 +790,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/tether_logo.svg"
 															alt="Tether Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">USDT</p>
+														<p class="coin-name" id="coinName">USDT</p>
 													</div>
 												</div>
 											</div>
@@ -782,7 +808,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div
 												class="profile__cryptocurrency-column cryptolist__column"
@@ -793,13 +819,20 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 										<div
-											class="profile__cryptocurrency-coin cryptolist__coin"
+											class="coin profile__cryptocurrency-coin cryptolist__coin"
 											data-id="5426"
 										>
 											<div
@@ -813,13 +846,13 @@
 												<div class="cryptolist__coin-icon-name">
 													<div class="cryptolist__coin-icon">
 														<img
-															id="coinIcon"
+															class="coin-icon" id="coinIcon"
 															src="./img/sol_logo.svg"
 															alt="Solana Icon"
 														/>
 													</div>
 													<div class="cryptolist__coin-name">
-														<p id="coinName">SOL</p>
+														<p class="coin-name" id="coinName">SOL</p>
 													</div>
 												</div>
 											</div>
@@ -831,7 +864,7 @@
 												>
 													Price
 												</p>
-												<p id="coinPrice"></p>
+												<p class="coin-price" id="coinPrice"></p>
 											</div>
 											<div
 												class="profile__cryptocurrency-column cryptolist__column"
@@ -842,16 +875,127 @@
 													24H Change
 												</p>
 												<div class="cryptolist__price-change-badge">
-													<p class="cryptolist__price-change"></p>
+													<p class="price-change cryptolist__price-change"></p>
 												</div>
 											</div>
-											<button id="addCoin">Add</button>
+											<div class="profile__cryptocurrency-buttons">
+												<button class="add-coin delete-add__buttons">
+													Add
+												</button>
+												<button class="delete-coin delete-add__buttons">
+													Delete
+												</button>
+											</div>
 										</div>
 									</div>
-									<button id="moreCoins">Select More Coins...</button>
+									<div class="more-continue-buttons">
+										<button id="continue">Continue</button>
+										<!-- <button id="moreCoins">Select More Coins...</button> -->
+									</div>
 								</div>
 							</div>
+							<div class="profile__congrat">
+								<h2 class="profile__congrat-title title">
+									Congratulations! Now you can follow the price, its change over
+									a certain period of time and more!
+								</h2>
+								<h4 class="profile__congrat-subtitle">
+									To start following, you can always go to profile header by
+									clicking on the "Favorites" or you can start now with the
+									button below:
+								</h4>
+								<button id="following">Start Followning</button>
+							</div>
 						</div>
+					</div>
+				</section>
+				<!-- <section class="search page" id="searchSection" data-page="search">
+					<div class="container search__container">
+						<div class="search__header">
+							<div class="search__header-logo-text">
+								<div class="search__header-logo">
+									<a href="./index.html">
+										<img src="./img/Logo CV.svg" alt="CryptoView Logo">
+									</a>
+								</div>
+								<div class="search__header-text header__text">
+									Search
+								</div>
+							</div>
+							<div class="search__header-user">
+								<div class="serach__header-user-img">
+									<img id="searchAvatar" src="./img/user.svg" alt="User">
+								</div>
+								<div class="search__header-username">User Name</div>
+							</div>
+						</div>
+
+						<div class="search__main-content">
+							<div class="search__inner">
+								<h2 class="search__title title">
+									Here you can find any cryptocurrencies and add them to your portfolio!
+								</h2>
+								<div class="search__input">
+									<input type="text" autocomplete="off" placeholder="Name of Coin" id="searchInput">
+								</div>
+								<div class="search__result"></div>
+							</div>
+						</div>
+					</div>
+				</section> -->
+
+				<section
+					class="favorites page"
+					id="favoritesSection"
+					data-page="favorites"
+				>
+					<div class="container favorites__container">
+							<div class="favorites__header">
+								<div class="favorites__header-logo-text header__text">
+									<div class="favorites__header-logo">
+										<a href="./index.html"
+											><img src="./img/Logo CV.svg" alt="CryptoView Logo"
+										/></a>
+									</div>
+									<div class="favorites__header-text">Favorites</div>
+								</div>
+								<div class="favorites__header-user">
+									<div class="favorites__header-user-img">
+										<img id="favoritesAvatar" src="./img/user.svg" alt="User" />
+									</div>
+									<div class="favorites__header-username">User Name</div>
+								</div>
+							</div>
+							<div class="favorites__hero">
+								<h2 class="favorites__title title">
+									Here you can track the coins you have added and using the tools provided.
+								</h2>
+							</div>
+
+							<div class="favorites__main">
+								<div class="favorites__add">
+									<div class="favorites__add-text">
+										You haven't added any cryptocurrency yet, you can do it by clicking the button below:
+									</div>
+									<button id="addCoinLink">Add Сryptocurrencies</button>
+								</div>
+								<div class="favorites__coins">
+									<!-- <h4 class="favorites__coin-title title">Your cryptocurrencies</h4> -->
+									<!-- <div class="favorites__coin">
+										<div class="favorites__coin-icon-name">
+											<img class="favorites__coin-icon" src="./img/btc_logo.svg" alt="BTC">
+											<p class="favorites__coin-name">Price Bitcoin (BTC)</p>
+										</div>
+										<div class="favorites__coin-price-inner">
+											<p>BTC TO USD: 1 Bitcoin = $96,232.99 USD +0.09% 1d.</p>
+										</div>
+										<button class="favorites__more-details-btn">
+											<span class="favorites__arrows-icon"></span>
+											More Details
+										</button>
+									</div> -->
+								</div>
+							</div>
 					</div>
 				</section>
 			</main>
