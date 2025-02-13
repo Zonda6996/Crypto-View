@@ -96,12 +96,12 @@ app.get('/news', async (req, res) => {
 })
 
 // Сервируем статические файлы из папки public
-app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use(express.static(path.join(__dirname, '..')))
 
 // Этот маршрут перехватывает все запросы, не совпавшие с предыдущими
 app.get('*', (req, res) => {
 	// Отправляем файл index.html для любых запросов
-	res.sendFile(path.resolve(__dirname, '..', 'public', 'index.html'))
+	res.sendFile(path.resolve(__dirname, '..', 'index.html'))
 })
 
 

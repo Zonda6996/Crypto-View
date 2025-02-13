@@ -159,6 +159,10 @@ export function handleProfileClick() {
 		startNowBtn.addEventListener('click', (event) => changeUrl('profile', event))
 	}
 
+	if (startFollowingBtn) {
+		startFollowingBtn.addEventListener('click', (event) => changeUrl('favorites', event))
+	}
+
 	if (addCoinLink) {
 		const addCoinsBlock = document.querySelector('.profile__choise')
 
@@ -300,7 +304,6 @@ export function handleAuth() {
 
 		// Показываем загрузку
 		const profileSection = document.querySelector('.profile')
-		console.log(profileSection)
 		const loading = document.createElement('div')
 		loading.id = 'authLoading'
 
@@ -404,6 +407,7 @@ export function logOut() {
 		localStorage.removeItem('email')
 		localStorage.removeItem('favoriteCurrency')
 		localStorage.removeItem('avatar')
+		localStorage.removeItem('coins')
 
 		// Удаляем флаг
 		localStorage.removeItem('isAuthenticated')
@@ -465,7 +469,6 @@ export function addCoins() {
 
 		// Форматируем каждое значение
 		Object.keys(coinInfo).forEach(key => {
-			console.log(coinInfo[key])
 			if (typeof coinInfo[key] === 'number') {
 				coinInfo[key] = formatNumber(coinInfo[key])
 			}
@@ -548,7 +551,7 @@ export function coinsFollowing() {
 
 
 		if (!savedCoins || savedCoins.length === 0) {
-			alert('Добавьте коин!')
+			alert('Add Coin!')
 			return
 		}
 
