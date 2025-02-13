@@ -1,5 +1,5 @@
 
-const isDevelopment = false
+const isDevelopment = true
 
 // Получаем данные о монетах с API
 export async function fetchMainCoinsData() {
