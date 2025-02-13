@@ -1,6 +1,6 @@
 import { formatNumber } from './utils.js';
 import { AMOUNT_MAX_LENGTH } from './constatns.js';
-import { fetchMainCoinsData } from './api.js';
+import { API_URL, fetchMainCoinsData } from './api.js';
 
 // Плавный скролл
 export function initScrollToTitle() {
@@ -110,7 +110,7 @@ export function initCurrencyConverter() {
 
 		// Получаем результат конвертации от сервера (API)
 		try {
-			const response = await fetch(`http://localhost:5000/price-conversion?amount=${amount}&symbol=${fromCurrency}&convert=${toCurrency}`)
+			const response = await fetch(`${API_URL}/price-conversion?amount=${amount}&symbol=${fromCurrency}&convert=${toCurrency}`)
 			const data = await response.json()
 
 			const conversionResult = data.data.quote[toCurrency].price

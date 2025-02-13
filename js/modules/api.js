@@ -1,6 +1,8 @@
 
 const isDevelopment = true
 
+export const API_URL = 'https://crypto-view-iik4.onrender.com'
+
 // Получаем данные о монетах с API
 export async function fetchMainCoinsData() {
 
@@ -10,7 +12,7 @@ export async function fetchMainCoinsData() {
 		if (!isDevelopment) {
 			response = await fetch('../../json/mockData.json')
 		} else {
-			response = await fetch(`http://localhost:5000/cryptos/`)
+			response = await fetch(`${API_URL}/cryptos`)
 		}
 
 		const coins = await response.json()
@@ -25,7 +27,7 @@ export async function fetchMainCoinsData() {
 export async function fetchNewsData() {
 
 	try {
-		const response = await fetch('http://localhost:5000/news')
+		const response = await fetch(`${API_URL}/news`)
 		return await response.json()
 
 	} catch (error) {

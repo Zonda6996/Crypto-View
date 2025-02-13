@@ -1,6 +1,5 @@
 import { formatNumber, formatDate } from "./utils.js";
 import { fetchMainCoinsData, fetchNewsData } from "./api.js";
-import { toggleCoinDetails } from "./eventHanlers.js";
 
 // Реднерим информацию о монетах
 export async function renderCoinsData() {
