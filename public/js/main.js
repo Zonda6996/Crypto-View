@@ -1,6 +1,6 @@
 // Импортируем модули
 import { renderAddedCoins, renderCoinsData, renderNews } from "./modules/render.js";
-import { initScrollToTitle, initProfileMenu, initCurrencyConverter, handleProfileClick, handlePopstate, switchPage, handleModal, handleAuth, logOut, addCoins, coinsFollowing, toggleCoinDetails, initFavoritesCurrencyConverter } from "./modules/eventHanlers.js";
+import { initScrollToTitle, initProfileMenu, initCurrencyConverter, handleProfileClick, handlePopstate, switchPage, handleModal, handleAuth, logOut, addCoins, coinsFollowing, toggleCoinDetails, initFavoritesCurrencyConverter, toggleAnswer } from "./modules/eventHanlers.js";
 
 
 // Инициализируем модули
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 	handleAuth()
 	logOut()
 	addCoins()
+	toggleAnswer()
 	coinsFollowing()
 	toggleCoinDetails()
 });

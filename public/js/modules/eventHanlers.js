@@ -24,7 +24,8 @@ export function initProfileMenu() {
 	const selectors = {
 		'index.html': '.header-profile__img',
 		'profile': '.profile__header-user-img',
-		'favorites': '.favorites__header-user-img'
+		'favorites': '.favorites__header-user-img',
+		'settings': '.settings__header-user-img',
 		// 'search': '.serach__header-user-img',
 	}
 
@@ -246,15 +247,18 @@ export function handleAuth() {
 	const avatarModalImg = document.getElementById('avatarModal')
 
 	// Элементы интерфейса
-	const profileName = document.querySelector('.profile__header-username') // Имя в шапке
+	const headerName = document.querySelector('.header__username') // Имя в шапке на главной странице
+	const profileName = document.querySelector('.profile__header-username') // Имя в шапке "My Profile"
 	const searchName = document.querySelector('.search__header-username') // Имя в шапке на странице "Search" 
 	const favoritesName = document.querySelector('.favorites__header-username') // Имя в шапке на странице "Favorites"
+	const settingsName = document.querySelector('.settings__header-username') // Имя в шапке на странице "Settings"
 	const mainGreeting = document.getElementById('mainGreeting') // Главное приветствие
 	const textGreeting = document.querySelector('.profile__hero-subtitle') // Текст описывающий профиль
 	const mainAvatarImg = document.getElementById('mainAvatar') // Аватарка в шапке на гланвной странице
 	const profileAvatarImg = document.getElementById('profileAvatar') // Аватарка в шапке профиля
 	const searchAvatarImg = document.getElementById('searchAvatar') // Аватарка в шапке 'Search'
 	const favoritesAvatarImg = document.getElementById('favoritesAvatar') // Аватарка в шапке 'Favorites'
+	const settingsAvatarImg = document.getElementById('settingsAvatar') // Аватарка в шапке 'Settings'
 	const loginSection = document.querySelector('.profile__login') // Секция "Log In"
 	const profileMain = document.querySelector('.profile__main-content') // Скрытая часть профиля
 	const modal = document.querySelector('.profile__auth-modal') // Модальное окно
@@ -310,12 +314,15 @@ export function handleAuth() {
 
 			// Обновляем UI
 			profileName.textContent = username
+			headerName.textContent = username
+			settingsName.textContent = username
 			mainGreeting.textContent = `Hello, ${username}!`
 			textGreeting.textContent = `Welcome to Crypto View! Now you can follow cryptocurrency prices, add your favorite coins to portfolio and much more!`
 
 			if (avatar) {
 				mainAvatarImg.src = avatar
 				profileAvatarImg.src = avatar
+				settingsAvatarImg.src = avatar
 				// searchAvatarImg.src = avatar
 
 			}
@@ -334,14 +341,17 @@ export function handleAuth() {
 export function loadDataProfile() {
 
 	// Получаем элементы UI
+	const headerName = document.querySelector('.header__username')
 	const profileName = document.querySelector('.profile__header-username')
 	const searchName = document.querySelector('.search__header-username')
 	const favoritesName = document.querySelector('.favorites__header-username')
+	const settingsName = document.querySelector('.settings__header-username') // Имя в шапке на странице "Settings"
 	const mainGreeting = document.getElementById('mainGreeting')
 	const mainAvatarImg = document.getElementById('mainAvatar')
 	const profileAvatarImg = document.getElementById('profileAvatar')
 	const searchAvatarImg = document.getElementById('searchAvatar')
 	const favoritesAvatarImg = document.getElementById('favoritesAvatar')
+	const settingsAvatarImg = document.getElementById('settingsAvatar') // Аватарка в шапке 'Settings'
 	const loginSection = document.querySelector('.profile__login')
 	const profileMain = document.querySelector('.profile__main-content')
 	const startNowBtn = document.querySelector('.hero-starts__button-start')
@@ -357,8 +367,10 @@ export function loadDataProfile() {
 
 	// Username
 	if (savedUsername) {
+		headerName.textContent = savedUsername
 		profileName.textContent = savedUsername
 		favoritesName.textContent = savedUsername
+		settingsName.textContent = savedUsername
 		mainGreeting.textContent = `Hello, ${savedUsername}!`
 	}
 
@@ -377,6 +389,7 @@ export function loadDataProfile() {
 		mainAvatarImg.src = savedAvatar
 		profileAvatarImg.src = savedAvatar
 		favoritesAvatarImg.src = savedAvatar
+		settingsAvatarImg.src = savedAvatar
 		// searchAvatarImg.src = savedAvatar
 	}
 }
@@ -507,13 +520,32 @@ function updateButtonState() {
 	})
 }
 
+export function toggleAnswer() {
+	const questions = document.querySelectorAll('.faq__question')
+
+	questions.forEach((question) => {
+
+		question.addEventListener('click', () => {
+			const parent = question.parentElement
+			parent.classList.toggle('active')
+		});
+	})
+}
+
 export function coinsFollowing() {
 	const continueBtn = document.getElementById('continue')
 	const congratulationBlock = document.querySelector('.profile__congrat')
 	const followingBtn = document.getElementById('following')
+	const savedCoins = JSON.parse(localStorage.getItem('coins') || '[]')
+
+	if (savedCoins.length > 0) {
+		continueBtn.style.display = 'none'
+	}
+
 
 	continueBtn.addEventListener('click', () => {
 		const savedCoins = JSON.parse(localStorage.getItem('coins') || '[]')
+
 
 		if (!savedCoins || savedCoins.length === 0) {
 			alert('Добавьте коин!')
@@ -528,9 +560,6 @@ export function coinsFollowing() {
 				block: 'start'
 			})
 		}, 100)
-	});
-
-	followingBtn.addEventListener('click', () => {
 	});
 }
 

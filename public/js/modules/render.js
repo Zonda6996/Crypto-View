@@ -91,144 +91,68 @@ export async function renderNews() {
 export function renderAddedCoins() {
 	const savedCoins = JSON.parse(localStorage.getItem('coins') || '[]')
 	const addCoinWarn = document.querySelector('.favorites__add')
+	const coinsContainer = document.querySelector('.favorites__coins')
 
 	if (!savedCoins || savedCoins.length === 0) {
 		addCoinWarn.classList.add('active')
 		return
 	}
 
-
-	const coinsContainer = document.querySelector('.favorites__coins')
-
 	coinsContainer.innerHTML = ''
 
 	savedCoins.forEach(coin => {
-		// Разметка монеты
-		const coinContainer = document.createElement('div')
-		coinContainer.classList.add('favorites__coin')
-
-		const coinIconNameCnt = document.createElement('div')
-		coinIconNameCnt.classList.add('favorites__coin-icon-name')
-
-		const coinIcon = document.createElement('img')
-		coinIcon.classList.add('favorites__coin-icon')
-		coinIcon.src = coin.icon
-
-		const coinName = document.createElement('p')
-		coinName.classList.add('favorites__coin-name')
-		coinName.textContent = `${coin.symbol} Price (${coin.name})`
-
-		const coinPriceCnt = document.createElement('div')
-		coinPriceCnt.classList.add('favorites__coin-price-inner')
-
-		const coinPrice = document.createElement('p')
-		coinPrice.classList.add('favorites__coin-price')
-		const percentChange24h = coin.percent_change_24h
-		const percentClass = percentChange24h > 0 ? 'positive' : 'negative'
-		const sign = percentChange24h > 0 ? '+' : ''
-
-		coinPrice.innerHTML = `${coin.name} TO&nbsp;<strong>USD</strong>: 1 ${coin.symbol}
-		 = <div class="change-font">&nbsp;<strong>$${coin.price} USD</strong>
-		 <span class="${percentClass}">${sign}${percentChange24h}%</span>
-		 <span class="time-frame">1d.</span></div>`
-
-		const moreDetailsBtn = document.createElement('button')
-		moreDetailsBtn.classList.add('favorites__more-details-btn')
-
-		const arrowsIcon = document.createElement('span')
-		arrowsIcon.classList.add('favorites__arrows-icon')
-
-		const detailsContainer = document.createElement('div')
-		detailsContainer.classList.add('favorites__details')
-
-		const detailsContent = document.createElement('div')
-		detailsContainer.classList.add('favorites__details-content')
-
-		const marketCapEl = document.createElement('p')
-		marketCapEl.classList.add('favorites__details-marketcap')
-		marketCapEl.textContent = `Market Cap: $${coin.market_cap}`
-
-		const percentChange1hEl = document.createElement('p')
-		const percentChange24hEl = document.createElement('p')
-		const percentChange7dEl = document.createElement('p')
-		const percentChange30dEl = document.createElement('p')
-		const percentChange60dEl = document.createElement('p')
-		const percentChange90dEl = document.createElement('p')
-
-		percentChange1hEl.classList.add('favorites__details-percent-change')
-		percentChange24hEl.classList.add('favorites__details-percent-change')
-		percentChange7dEl.classList.add('favorites__details-percent-change')
-		percentChange30dEl.classList.add('favorites__details-percent-change')
-		percentChange60dEl.classList.add('favorites__details-percent-change')
-		percentChange90dEl.classList.add('favorites__details-percent-change')
-
-		percentChange1hEl.innerText = `Percent Change 1h: ${coin.percent_change_1h}%`
-		percentChange24hEl.innerText = `Percent Change 24h: ${coin.percent_change_24h}%`
-		percentChange7dEl.innerText = `Percent Change 7d: ${coin.percent_change_7d}%`
-		percentChange30dEl.innerText = `Percent Change 30d: ${coin.percent_change_30d}%`
-		percentChange60dEl.innerText = `Percent Change 60d: ${coin.percent_change_60d}%`
-		percentChange90dEl.innerText = `Percent Change 90d: ${coin.percent_change_90d}%`
-
-
-
 		const coinInner = document.createElement('div')
 		coinInner.classList.add('favorites__coin-inner')
 
+		coinInner.innerHTML = `
+		<div class="favorites__coin">
+			<div class="favorites__coin-icon-name">
+				<img class="favorites__coin-icon" src="${coin.icon}" alt="${coin.name}">
+				<p class="favorites__coin-name">${coin.symbol} Price (${coin.name})</p>
+			</div>
+			<div class="favorites__coin-price">
+				${coin.name} TO&nbsp;<strong>USD</strong>: 1 ${coin.symbol} =
+				<div class="change-font">&nbsp;<strong>$${coin.price} USD</strong>
+					<span class="${coin.percent_change_24h > 0 ? 'positive' : 'negative'}">
+						${coin.percent_change_24h > 0 ? '+' : ''}${coin.percent_change_24h}%
+					</span>
+					<span class="time-frame">1d.</span>
+				</div>
+			</div>
+			<button class="favorites__more-details-btn">
+				<span class="favorites__arrows-icon"></span> More Details
+			</button>
+			<div class="favorites__details">
+				<div class="favorites__details-content">
+					<p class="favorites__details-marketcap">Market Cap: $${coin.market_cap}</p>
+					${[
+				{ time: '1h', key: 'percent_change_1h' },
+				{ time: '24h', key: 'percent_change_24h' },
+				{ time: '7d', key: 'percent_change_7d' },
+				{ time: '30d', key: 'percent_change_30d' },
+				{ time: '60d', key: 'percent_change_60d' },
+				{ time: '90d', key: 'percent_change_90d' },
+			].map(({ time, key }) => `
+			<p class="favorites__details-percent-change">
+				Percent Change <span class="change-font">${time}: <span class="${coin[key] > 0 ? 'positive' : 'negative'}">${coin[key] > 0 ? '+' : ''}${coin[key]}%</span></span>
+			</p>`).join('')}
+				</div>
+			</div>
+		</div>
+		<div class="favorites__coin-converter">
+			<p class="favorites__coin-converter-text">Buy ${coin.name}</p>
+			<div class="favorites__coin-converter-buy-input-inner"> You Buy
+				<input class="favorites__coin-converter-buy-input" name="buy" placeholder="0" type="number">
+			</div>
+			<p class="favorites__coin-converter-price">
+				1 ${coin.name} <span class="almost-equal">&asymp;</span> USD $<span class="coin-price">${coin.price}</span>
+			</p>
+			<div class="favorites__coin-converter-spend-input-inner"> You Spend
+				<input class="favorites__coin-converter-spend-input" name="spend" placeholder="0" type="number">
+			</div>
+		</div>
+		`;
+
 		coinsContainer.append(coinInner)
-
-		coinIconNameCnt.append(coinIcon, coinName)
-
-		moreDetailsBtn.append(arrowsIcon, document.createTextNode('More Details'))
-
-		detailsContainer.append(detailsContent)
-
-		detailsContent.append(marketCapEl, percentChange1hEl, percentChange24hEl, percentChange7dEl, percentChange30dEl, percentChange60dEl, percentChange90dEl)
-
-		coinContainer.append(coinIconNameCnt, coinPrice, moreDetailsBtn, detailsContainer)
-
-
-		// Разметка конвертера к каждой монете
-		const coinConverter = document.createElement('div')
-		coinConverter.classList.add('favorites__coin-converter')
-
-		const converterBuyText = document.createElement('p')
-		converterBuyText.classList.add('favorites__coin-converter-text')
-		converterBuyText.textContent = `Buy ${coin.name}`
-
-		const converterBuyInner = document.createElement('div')
-		converterBuyInner.classList.add('favorites__coin-converter-buy-input-inner')
-		converterBuyInner.textContent = 'You Buy'
-
-		const converterBuyInput = document.createElement('input')
-		converterBuyInput.classList.add('favorites__coin-converter-buy-input')
-		converterBuyInput.setAttribute("name", "buy")
-		converterBuyInput.setAttribute("placeholder", "0")
-		converterBuyInput.setAttribute("type", "number")
-
-		const converterCoinPrice = document.createElement('p')
-		converterCoinPrice.classList.add('favorites__coin-converter-price')
-		converterCoinPrice.innerHTML = `1 ${coin.name} <span class="almost-equal">&asymp;</span> USD $<span class="coin-price">${coin.price}</span>`
-
-		const converterSpendInner = document.createElement('div')
-		converterSpendInner.classList.add('favorites__coin-converter-spend-input-inner')
-		converterSpendInner.textContent = 'You Spend'
-
-
-		const converterSpendInput = document.createElement('input')
-		converterSpendInput.classList.add('favorites__coin-converter-spend-input')
-		converterSpendInput.setAttribute("name", "spend")
-		converterSpendInput.setAttribute("placeholder", "0")
-		converterSpendInput.setAttribute("type", "number")
-
-
-
-		coinInner.append(coinContainer)
-
-		coinInner.append(coinConverter)
-
-		converterBuyInner.append(converterBuyInput)
-		converterSpendInner.append(converterSpendInput)
-
-		coinConverter.append(converterBuyText, converterBuyInner, converterCoinPrice, converterSpendInner)
 	})
 }

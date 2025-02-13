@@ -61,6 +61,7 @@
 
 .favorites__main {
 	margin-top: 30px;
+	margin-bottom: 100px;
 }
 
 .favorites__add {
@@ -269,6 +270,7 @@
 		background-size: cover;
 		width: 25px;
 		height: 25px;
+		pointer-events: none;
 	}
 
 	&:hover {
@@ -303,6 +305,18 @@
 	font-weight: 600;
 }
 
-.favorites__details-percent-change{
+.favorites__details-percent-change {
 	margin-top: 15px;
+
+	& .positive {
+		color: $light-green;
+	}
+
+	& .negative {
+		color: $light-red;
+	}
+
+	& .change-font {
+		font-family: Oxanium;
+	}
 }

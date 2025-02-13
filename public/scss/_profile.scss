@@ -254,13 +254,31 @@
 }
 
 #authLoading {
-	background-color: black;
+	background-color: white;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 1500px;
 	z-index: 100;
+
+
+	&::after {
+		content: ". . .";
+		font-size: 40px;
+		position: absolute;
+		left: 51%;
+		top: 20%;
+		color: $primary-color;
+		clip-path: inset(0 2ch 0 0);
+		animation: loading 1s steps(4) infinite;
+	}
+}
+
+@keyframes loading {
+	to {
+		clip-path: inset(0 -1ch 0 0)
+	}
 }
 
 .profile__main-content {
